@@ -9,13 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.my.imageslider.R
-import com.my.imageslider.SliderViewAdapter
+import com.my.imageslider.WEBSliderViewAdapter
 
 
-class SliderAdapter(val context: Context) : SliderViewAdapter<SliderAdapter.SliderAdapterVH>() {
+class SliderAdapter(val context: Context) : WEBSliderViewAdapter<SliderAdapter.SliderAdapterVH>() {
     private var sliderList:List<SliderItem> = ArrayList()
 
-    class SliderAdapterVH(itemView: View?) : SliderViewAdapter.ViewHolder(itemView) {
+    class SliderAdapterVH(itemView: View?) : WEBSliderViewAdapter.ViewHolder(itemView) {
          var imageViewBackground:ImageView = itemView!!.findViewById(R.id.iv_auto_image_slider)
          var textViewDescription:TextView = itemView!!.findViewById(R.id.tv_auto_image_slider)
          var imageGifContainer:ImageView = itemView!!.findViewById(R.id.iv_gif_container)
@@ -36,10 +36,16 @@ class SliderAdapter(val context: Context) : SliderViewAdapter<SliderAdapter.Slid
         viewHolder!!.textViewDescription.text = sliderItem.description
         viewHolder!!.textViewDescription.textSize = 16f
         viewHolder!!.textViewDescription.setTextColor(Color.WHITE)
-        Glide.with(viewHolder.itemView)
-            .load(sliderItem.imageUrl)
-            .fitCenter()
-            .into(viewHolder.imageViewBackground)
+
+        if(sliderItem.imageUrl ==""){
+            viewHolder!!.imageViewBackground.setImageDrawable(sliderItem.drawable)
+        }else{
+            Glide.with(viewHolder!!.itemView)
+                .load(sliderItem.imageUrl)
+                .fitCenter()
+                .into(viewHolder.imageViewBackground)
+        }
+
     }
 
     fun setSliderItems(list: List<SliderItem>) {

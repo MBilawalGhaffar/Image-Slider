@@ -44,14 +44,13 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="SliderView">
+    <declare-styleable name="WEBSliderView">
 
         <attr name="sliderIndicatorOrientation">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
 
-        <attr name="sliderIndicatorEnabled" format="boolean" />
         <attr name="sliderIndicatorRadius" format="dimension" />
         <attr name="sliderIndicatorPadding" format="dimension" />
         <attr name="sliderIndicatorMargin" format="dimension" />
@@ -89,6 +88,8 @@
         </attr>
 
         <attr name="sliderScrollTimeInSec" format="integer" />
+
+        <attr name="sliderCircularHandlerEnabled" format="boolean" />
         <attr name="sliderAutoCycleEnabled" format="boolean" />
         <attr name="sliderStartAutoCycle" format="boolean" />
 

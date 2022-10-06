@@ -1,6 +1,9 @@
 package com.my.testing.slider
 
+import android.graphics.drawable.Drawable
+
 class SliderItem(
-    var description: String,
-    val imageUrl: String
+    val description: String,
+    val imageUrl: String,
+    val drawable: Drawable
 )
